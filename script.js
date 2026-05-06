@@ -11,7 +11,7 @@
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     status.className = 'form-status';
-    status.textContent = 'Envoi en cours...';
+    status.textContent = 'Envoi en cours…';
     submit.disabled = true;
 
     const formData = new FormData(form);
@@ -31,11 +31,11 @@
         successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
         const data = await response.json().catch(() => ({}));
-        throw new Error(data.message || 'Erreur reseau');
+        throw new Error(data.message || 'Erreur réseau');
       }
     } catch (err) {
       status.className = 'form-status error';
-      status.textContent = "Probleme d'envoi. Reessaye dans un instant.";
+      status.textContent = "Problème d'envoi. Réessaie dans un instant.";
       // eslint-disable-next-line no-console
       console.error(err);
       submit.disabled = false;
@@ -47,7 +47,7 @@
   shareBtn.addEventListener('click', async () => {
     const shareData = {
       title: 'findjob237',
-      text: 'Toutes les offres d\'emploi du Cameroun, filtrees des arnaques. Inscris-toi avant le lancement.',
+      text: 'Toutes les offres d\'emploi du Cameroun, filtrées des arnaques. Inscris-toi avant le lancement.',
       url: window.location.href,
     };
 
@@ -56,7 +56,7 @@
         await navigator.share(shareData);
       } else if (navigator.clipboard) {
         await navigator.clipboard.writeText(window.location.href);
-        shareBtn.textContent = '✓ Lien copie !';
+        shareBtn.textContent = '✓ Lien copié !';
         setTimeout(() => {
           shareBtn.textContent = '📲 Partager findjob237';
         }, 2000);
