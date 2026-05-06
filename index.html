@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>findjob237 — Toutes les offres d'emploi du Cameroun</title>
   <meta name="description" content="findjob237 agrege les offres d'emploi du Cameroun, filtre les arnaques, et te previent quand une offre te correspond. Inscris-toi pour etre averti·e du lancement." />
+  <meta name="theme-color" content="#16a34a" />
 
   <!-- Open Graph (partage social) -->
   <meta property="og:title" content="findjob237 — Trouve un emploi qui te correspond" />
@@ -15,30 +16,107 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header class="hero">
-  <div class="container">
-    <nav class="nav">
-      <span class="brand">findjob<span class="brand-suffix">237</span></span>
-    </nav>
-
-    <h1>Toutes les offres d'emploi du Cameroun, filtrees des arnaques, qui te trouvent.</h1>
-    <p class="subtitle">
-      MinaJobs, ReliefWeb, UN Talent, Telegram, pages Facebook officielles —
-      agreges en un seul endroit. Tu nous dis ce que tu cherches, on te previent.
-    </p>
-    <div class="launch-badge">🚀 Beta privee · 20 mai 2026</div>
-    <a href="#waitlist" class="cta-primary">Etre prevenu·e du lancement</a>
-    <p class="cta-note">Gratuit · 100% local · Acces prioritaire pour les pre-inscrits</p>
+<header class="topbar">
+  <div class="container topbar-inner">
+    <span class="brand">findjob<span class="brand-suffix">237</span></span>
+    <a href="#waitlist" class="topbar-cta">S'inscrire</a>
   </div>
 </header>
 
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="launch-badge">🚀 Beta privee · 20 mai 2026</div>
+      <h1>
+        Toutes les offres d'emploi du Cameroun, <span class="hl">filtrees des arnaques</span>, qui te trouvent.
+      </h1>
+      <p class="subtitle">
+        MinaJobs, ReliefWeb, UN Talent, Telegram, pages Facebook officielles —
+        agreges en un seul endroit. Tu nous dis ce que tu cherches, on te previent.
+      </p>
+      <a href="#waitlist" class="cta-primary">Etre prevenu·e du lancement</a>
+      <p class="cta-note">Gratuit · 100% local · Acces prioritaire pour les pre-inscrits</p>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-statusbar">
+            <span>9:41</span>
+            <span class="status-dots">● ● ●</span>
+          </div>
+          <div class="phone-app-header">
+            <span class="phone-brand">findjob<span class="brand-suffix">237</span></span>
+            <span class="phone-bell">🔔</span>
+          </div>
+          <div class="phone-feed">
+            <article class="phone-card">
+              <div class="phone-card-tags">
+                <span class="tag tag-contract">CDI</span>
+                <span class="tag tag-match">🎯 92% match</span>
+              </div>
+              <h4>Developpeur Python — Junior</h4>
+              <p class="phone-card-meta">Douala · ONG internationale · Bac+3</p>
+              <div class="phone-card-score">
+                <span class="dot dot-ok"></span> Fiable a 95%
+              </div>
+            </article>
+
+            <article class="phone-card">
+              <div class="phone-card-tags">
+                <span class="tag tag-contract">Stage</span>
+                <span class="tag tag-match">🎯 84% match</span>
+              </div>
+              <h4>Stagiaire Marketing Digital</h4>
+              <p class="phone-card-meta">Yaounde · Cabinet RH · Bac+2</p>
+              <div class="phone-card-score">
+                <span class="dot dot-ok"></span> Fiable a 88%
+              </div>
+            </article>
+
+            <article class="phone-card phone-card-warning">
+              <div class="phone-card-tags">
+                <span class="tag tag-contract">CDD</span>
+                <span class="tag tag-warn">⚠️ Arnaque suspectee</span>
+              </div>
+              <h4>"Recrutement urgent — gros salaire"</h4>
+              <p class="phone-card-meta">Demande des frais de dossier · bloque</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SOURCES ============== -->
+<section class="sources-strip">
+  <div class="container">
+    <p class="sources-label">Nos offres viennent des sources camerounaises et internationales reconnues</p>
+    <div class="sources-list">
+      <span class="source-chip">MinaJobs</span>
+      <span class="source-chip">ReliefWeb</span>
+      <span class="source-chip">UN Talent</span>
+      <span class="source-chip">Jooble</span>
+      <span class="source-chip">Pages Facebook officielles</span>
+      <span class="source-chip">Canaux Telegram emploi</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============== VALUE ============== -->
 <section class="value">
   <div class="container">
+    <h2>Pourquoi findjob237</h2>
+    <p class="section-subtitle">Trois principes simples, une experience qui change tout.</p>
+
     <div class="value-grid">
       <article class="value-card">
         <div class="value-icon">🎯</div>
@@ -59,42 +137,144 @@
   </div>
 </section>
 
+<!-- ============== PREVIEW ============== -->
+<section class="preview">
+  <div class="container">
+    <h2>Voici ce que tu vois dans l'app</h2>
+    <p class="section-subtitle">Une fiche claire, un score de fiabilite, et un lien direct vers l'offre originale.</p>
+
+    <div class="preview-grid">
+      <article class="preview-card">
+        <header>
+          <span class="tag tag-contract">CDI</span>
+          <span class="tag tag-light">Bac+3 · 2 ans d'exp.</span>
+        </header>
+        <h3>Charge·e de communication digitale</h3>
+        <p class="preview-meta">📍 Douala · 🏢 Agence de communication</p>
+        <p class="preview-snippet">
+          Animer les reseaux sociaux d'un portefeuille de 5 marques camerounaises,
+          produire des contenus video courts, suivre les KPIs hebdomadaires...
+        </p>
+        <footer>
+          <span class="score-badge score-ok">✓ Source fiable</span>
+          <span class="score-match">🎯 89% match</span>
+        </footer>
+      </article>
+
+      <article class="preview-card">
+        <header>
+          <span class="tag tag-contract">Stage</span>
+          <span class="tag tag-light">Bac+2 · 6 mois</span>
+        </header>
+        <h3>Developpeur·euse mobile (Flutter)</h3>
+        <p class="preview-meta">📍 Yaounde · 🏢 Startup fintech</p>
+        <p class="preview-snippet">
+          Developper de nouvelles fonctionnalites sur l'application mobile,
+          travailler en pair avec un senior, contribuer aux revues de code...
+        </p>
+        <footer>
+          <span class="score-badge score-ok">✓ Source fiable</span>
+          <span class="score-match">🎯 76% match</span>
+        </footer>
+      </article>
+
+      <article class="preview-card">
+        <header>
+          <span class="tag tag-contract">CDD</span>
+          <span class="tag tag-light">Bac+3 · 1-3 ans</span>
+        </header>
+        <h3>Coordinateur·trice projet humanitaire</h3>
+        <p class="preview-meta">📍 Maroua · 🏢 ONG internationale</p>
+        <p class="preview-snippet">
+          Coordonner les activites terrain d'un programme de securite alimentaire,
+          encadrer une equipe locale, reporting bailleur trimestriel...
+        </p>
+        <footer>
+          <span class="score-badge score-ok">✓ Source fiable</span>
+          <span class="score-match">🎯 71% match</span>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== HOW ============== -->
 <section class="how">
   <div class="container">
     <h2>Comment ca marche</h2>
+    <p class="section-subtitle">Tu n'as rien a faire d'autre que t'inscrire. On gere le reste.</p>
+
     <ol class="steps">
       <li>
         <span class="step-num">1</span>
         <div>
           <h4>Tu crees ton profil</h4>
-          <p>Ville, domaine, experience. 2 minutes max.</p>
+          <p>Ville, domaine, experience, ce que tu cherches en quelques mots. 2 minutes max.</p>
         </div>
       </li>
       <li>
         <span class="step-num">2</span>
         <div>
           <h4>On collecte et on filtre</h4>
-          <p>Toutes les nouvelles offres sont analysees, scorees, dedoublonnees.</p>
+          <p>Toutes les nouvelles offres sont analysees, scorees, dedoublonnees automatiquement.</p>
         </div>
       </li>
       <li>
         <span class="step-num">3</span>
         <div>
           <h4>Tu recois les bonnes</h4>
-          <p>Notifications dans l'app uniquement quand une offre te correspond vraiment.</p>
+          <p>Notification dans l'app uniquement quand une offre te correspond vraiment.</p>
         </div>
       </li>
     </ol>
   </div>
 </section>
 
+<!-- ============== FAQ ============== -->
+<section class="faq">
+  <div class="container">
+    <h2>Questions courantes</h2>
+
+    <details>
+      <summary>Combien ca coute ?</summary>
+      <p>Gratuit pendant toute la beta privee. Plus tard, une formule premium permettra de debloquer plus d'offres en exclusivite — les fonctionnalites principales resteront gratuites.</p>
+    </details>
+
+    <details>
+      <summary>D'ou viennent les offres ?</summary>
+      <p>De sources publiques et autorisees uniquement : APIs officielles (MinaJobs, ReliefWeb, UN Talent, Jooble), canaux Telegram emploi, pages Facebook d'entreprises et d'ONG. Aucune offre n'est inventee. Le lien original est toujours conserve.</p>
+    </details>
+
+    <details>
+      <summary>Comment vous detectez les arnaques ?</summary>
+      <p>Un moteur de regles repere automatiquement les signaux suspects : demande de frais, paiement Mobile Money pour candidater, contact WhatsApp uniquement, salaire incoherent. Les cas ambigus sont valides par un humain avant publication.</p>
+    </details>
+
+    <details>
+      <summary>Mes donnees sont-elles protegees ?</summary>
+      <p>Tes informations ne sont jamais revendues. Tu peux supprimer ton compte en 1 clic. Le numero WhatsApp recolte ici sert uniquement a t'avertir au lancement.</p>
+    </details>
+
+    <details>
+      <summary>Est-ce que je postule directement depuis l'app ?</summary>
+      <p>L'app te donne le lien officiel ou le contact recruteur de l'offre. Tu postules comme tu le ferais sur le site original — on n'intercepte rien.</p>
+    </details>
+
+    <details>
+      <summary>Pourquoi le 237 ?</summary>
+      <p>Parce qu'on est faits pour le Cameroun. 237 c'est l'indicatif telephonique du pays — un clin d'oeil a notre cible.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============== WAITLIST ============== -->
 <section class="waitlist" id="waitlist">
   <div class="container">
     <h2>Rejoins la liste d'attente</h2>
     <p class="waitlist-subtitle">
       Lancement de la beta privee le <strong>20 mai 2026</strong>.
-      Laisse ton numero WhatsApp, on te previent en premier.
-      Pas de spam, pas de partage, jamais.
+      Laisse ton email — on te previent en premier.
+      Pas de spam, pas de partage de tes donnees, jamais.
     </p>
 
     <!--
@@ -114,8 +294,11 @@
       <input type="hidden" name="from_name" value="Landing findjob237" />
       <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" />
 
-      <label for="phone">Numero WhatsApp <span class="req">*</span></label>
-      <input id="phone" name="phone" type="tel" placeholder="+237 6XX XX XX XX" required inputmode="tel" />
+      <label for="email">Email <span class="req">*</span></label>
+      <input id="email" name="email" type="email" placeholder="ton.email@gmail.com" required autocomplete="email" />
+
+      <label for="phone">WhatsApp <span class="optional">(optionnel — pour acces VIP)</span></label>
+      <input id="phone" name="phone" type="tel" placeholder="+237 6XX XX XX XX" inputmode="tel" autocomplete="tel" />
 
       <label for="city">Ville <span class="req">*</span></label>
       <select id="city" name="city" required>
@@ -144,7 +327,7 @@
       <div class="success-check" aria-hidden="true">✓</div>
       <h3>C'est note, merci !</h3>
       <p class="success-message">
-        On te previent par WhatsApp des l'ouverture de la beta, le
+        On te previent par email des l'ouverture de la beta, le
         <strong>20 mai 2026</strong>.
       </p>
       <p class="success-share">
@@ -158,11 +341,17 @@
   </div>
 </section>
 
+<!-- ============== FINAL CTA ============== -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Pret·e a ne plus chercher dans le vide ?</h2>
+    <a href="#waitlist" class="cta-primary cta-on-dark">S'inscrire maintenant</a>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="container">
-    <p>
-      © 2026 findjob237. Tes donnees ne sont jamais revendues.
-    </p>
+    <p>© 2026 findjob237. Tes donnees ne sont jamais revendues.</p>
   </div>
 </footer>
 

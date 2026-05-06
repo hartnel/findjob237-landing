@@ -1,27 +1,49 @@
-/* Theme : vert + blanc, mobile-first, sans framework. */
+/* ============================================================
+   findjob237 — landing page
+   Theme : vert + blanc, mobile-first, sans framework
+   ============================================================ */
+
 :root {
   --green-50:  #f0fdf4;
   --green-100: #dcfce7;
+  --green-200: #bbf7d0;
   --green-500: #22c55e;
   --green-600: #16a34a;
   --green-700: #15803d;
   --green-800: #166534;
+  --green-900: #14532d;
 
   --white:     #ffffff;
+  --gray-50:   #f9fafb;
   --gray-100:  #f3f4f6;
   --gray-200:  #e5e7eb;
+  --gray-300:  #d1d5db;
   --gray-500:  #6b7280;
   --gray-700:  #374151;
+  --gray-800:  #1f2937;
   --gray-900:  #111827;
 
-  --radius: 12px;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --amber-100: #fef3c7;
+  --amber-800: #92400e;
+  --red-100:   #fee2e2;
+  --red-800:   #991b1b;
+
+  --radius-sm: 8px;
+  --radius:    12px;
+  --radius-lg: 20px;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 50px rgba(15, 60, 30, 0.15);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -29,62 +51,127 @@ body {
   background: var(--white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+img, svg { display: block; max-width: 100%; }
 
 .container {
   width: 100%;
-  max-width: 720px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* ---- Hero ---- */
-.hero {
-  background: linear-gradient(180deg, var(--green-50) 0%, var(--white) 100%);
-  padding: 24px 0 64px;
+/* ============================================================
+   TOPBAR
+   ============================================================ */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--gray-200);
 }
 
-.nav {
+.topbar-inner {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 56px;
+  padding: 14px 20px;
 }
 
 .brand {
   font-weight: 800;
   font-size: 1.25rem;
   color: var(--green-700);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 .brand-suffix {
   color: var(--gray-900);
 }
 
-h1 {
-  font-size: clamp(1.75rem, 6vw, 2.75rem);
-  line-height: 1.15;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 20px;
+.topbar-cta {
+  background: var(--green-600);
+  color: var(--white);
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.15s;
+}
+.topbar-cta:hover { background: var(--green-700); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  background: linear-gradient(180deg, var(--green-50) 0%, var(--white) 100%);
+  padding: 56px 0 72px;
+  position: relative;
+  overflow: hidden;
 }
 
-.subtitle {
-  font-size: 1.05rem;
-  color: var(--gray-700);
-  margin-bottom: 32px;
-  max-width: 600px;
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, var(--green-100) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+}
+
+.hero-text { position: relative; }
 
 .launch-badge {
   display: inline-block;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   padding: 6px 14px;
   background: var(--green-100);
   color: var(--green-800);
   font-size: 0.875rem;
   font-weight: 600;
   border-radius: 999px;
-  border: 1px solid var(--green-500);
+  border: 1px solid var(--green-200);
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+  color: var(--gray-900);
+}
+
+h1 .hl {
+  color: var(--green-700);
+  position: relative;
+  white-space: nowrap;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--gray-700);
+  margin-bottom: 32px;
+  max-width: 540px;
+  line-height: 1.6;
 }
 
 .cta-primary {
@@ -93,19 +180,18 @@ h1 {
   color: var(--white);
   font-weight: 600;
   font-size: 1rem;
-  padding: 14px 28px;
+  padding: 15px 30px;
   border-radius: var(--radius);
   text-decoration: none;
   box-shadow: var(--shadow-md);
-  transition: background 0.15s ease, transform 0.15s ease;
+  transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
 }
 .cta-primary:hover {
   background: var(--green-700);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
-.cta-primary:active {
-  transform: translateY(0);
-}
+.cta-primary:active { transform: translateY(0); }
 
 .cta-note {
   margin-top: 14px;
@@ -113,10 +199,214 @@ h1 {
   color: var(--gray-500);
 }
 
-/* ---- Value blocks ---- */
-.value {
-  padding: 64px 0;
+/* ===== Phone mockup ===== */
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.phone {
+  position: relative;
+  width: 280px;
+  background: var(--gray-900);
+  border-radius: 36px;
+  padding: 10px;
+  box-shadow: var(--shadow-lg), 0 0 0 2px var(--gray-800);
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s;
+}
+.phone:hover { transform: rotate(0deg); }
+
+.phone-notch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 22px;
+  background: var(--gray-900);
+  border-radius: 0 0 14px 14px;
+  z-index: 2;
+}
+
+.phone-screen {
+  background: var(--gray-50);
+  border-radius: 28px;
+  padding: 36px 14px 14px;
+  min-height: 520px;
+  overflow: hidden;
+}
+
+.phone-statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  padding: 0 8px 8px;
+}
+.status-dots {
+  letter-spacing: 2px;
+  color: var(--green-600);
+}
+
+.phone-app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 8px 16px;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 12px;
+}
+.phone-brand {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--green-700);
+}
+.phone-brand .brand-suffix { color: var(--gray-900); }
+.phone-bell { font-size: 1rem; }
+
+.phone-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.phone-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: var(--shadow-xs);
+}
+
+.phone-card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.phone-card h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  color: var(--gray-900);
+}
+
+.phone-card-meta {
+  font-size: 0.7rem;
+  color: var(--gray-500);
+  margin-bottom: 8px;
+}
+
+.phone-card-score {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-ok { background: var(--green-500); box-shadow: 0 0 0 2px var(--green-100); }
+
+.phone-card-warning {
+  background: var(--red-100);
+  border-color: var(--red-800);
+  opacity: 0.85;
+}
+.phone-card-warning h4 { color: var(--red-800); }
+
+/* ============================================================
+   TAGS (utilises dans phone mockup et preview cards)
+   ============================================================ */
+
+.tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+}
+.tag-contract { background: var(--green-100); color: var(--green-800); }
+.tag-match    { background: var(--amber-100); color: var(--amber-800); }
+.tag-warn     { background: var(--red-100);   color: var(--red-800); }
+.tag-light    { background: var(--gray-100);  color: var(--gray-700); }
+
+/* ============================================================
+   SOURCES STRIP
+   ============================================================ */
+
+.sources-strip {
+  padding: 40px 0;
+  background: var(--gray-50);
   border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.sources-label {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 20px;
+}
+
+.sources-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.source-chip {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  color: var(--gray-900);
+}
+
+.section-subtitle {
+  color: var(--gray-700);
+  font-size: 1rem;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+/* ============================================================
+   VALUE
+   ============================================================ */
+
+.value {
+  padding: 80px 0;
 }
 
 .value-grid {
@@ -130,11 +420,12 @@ h1 {
   border: 1px solid var(--gray-200);
   border-radius: var(--radius);
   padding: 28px;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
 }
 .value-card:hover {
   border-color: var(--green-500);
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .value-icon {
@@ -154,17 +445,95 @@ h1 {
   font-size: 0.95rem;
 }
 
-/* ---- How it works ---- */
-.how {
-  padding: 64px 0;
-  background: var(--green-50);
+/* ============================================================
+   PREVIEW (3 fake offer cards)
+   ============================================================ */
+
+.preview {
+  padding: 80px 0;
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
 }
 
-.how h2 {
-  font-size: 1.75rem;
-  font-weight: 800;
-  margin-bottom: 32px;
-  letter-spacing: -0.01em;
+.preview-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.preview-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.preview-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.preview-card header {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.preview-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--gray-900);
+}
+
+.preview-meta {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+}
+
+.preview-snippet {
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  line-height: 1.55;
+}
+
+.preview-card footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+  border-top: 1px dashed var(--gray-200);
+  padding-top: 12px;
+}
+
+.score-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.score-ok { background: var(--green-100); color: var(--green-800); }
+
+.score-match {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--amber-800);
+  background: var(--amber-100);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* ============================================================
+   HOW IT WORKS
+   ============================================================ */
+
+.how {
+  padding: 80px 0;
 }
 
 .steps {
@@ -172,18 +541,19 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  max-width: 640px;
 }
 
 .steps li {
   display: flex;
-  gap: 16px;
+  gap: 18px;
   align-items: flex-start;
 }
 
 .step-num {
-  flex: 0 0 36px;
-  width: 36px;
-  height: 36px;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--green-600);
   color: var(--white);
@@ -191,12 +561,14 @@ h1 {
   place-items: center;
   font-weight: 700;
   font-size: 1rem;
+  box-shadow: 0 0 0 4px var(--green-100);
 }
 
 .steps h4 {
   font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 4px;
+  color: var(--gray-900);
 }
 
 .steps p {
@@ -204,27 +576,79 @@ h1 {
   font-size: 0.95rem;
 }
 
-/* ---- Waitlist form ---- */
-.waitlist {
-  padding: 64px 0;
+/* ============================================================
+   FAQ
+   ============================================================ */
+
+.faq {
+  padding: 80px 0;
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
 }
 
-.waitlist h2 {
-  font-size: 1.75rem;
-  font-weight: 800;
-  margin-bottom: 12px;
-  letter-spacing: -0.01em;
+.faq h2 { margin-bottom: 32px; }
+
+.faq details {
+  border-bottom: 1px solid var(--gray-200);
+  padding: 18px 0;
+  max-width: 760px;
 }
+
+.faq summary {
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--gray-900);
+}
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary::after {
+  content: "+";
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--green-600);
+  transition: transform 0.2s;
+  display: inline-block;
+  width: 24px;
+  text-align: center;
+}
+.faq details[open] summary::after {
+  content: "−";
+}
+
+.faq details p {
+  margin-top: 14px;
+  color: var(--gray-700);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 720px;
+}
+
+/* ============================================================
+   WAITLIST
+   ============================================================ */
+
+.waitlist {
+  padding: 80px 0;
+}
+
+.waitlist h2 { margin-bottom: 12px; }
 
 .waitlist-subtitle {
   color: var(--gray-700);
   margin-bottom: 32px;
+  max-width: 600px;
 }
 
 #waitlist-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
+  max-width: 480px;
 }
 
 #waitlist-form label {
@@ -234,11 +658,12 @@ h1 {
 }
 
 .req { color: var(--green-600); }
+.optional { color: var(--gray-500); font-weight: 400; font-size: 0.8rem; }
 
 #waitlist-form input,
 #waitlist-form select {
   width: 100%;
-  padding: 12px 14px;
+  padding: 13px 14px;
   font-size: 1rem;
   font-family: inherit;
   color: var(--gray-900);
@@ -252,7 +677,7 @@ h1 {
 #waitlist-form select:focus {
   outline: none;
   border-color: var(--green-500);
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
 }
 
 #waitlist-form button {
@@ -265,11 +690,12 @@ h1 {
   border: none;
   border-radius: var(--radius);
   cursor: pointer;
-  transition: background 0.15s, transform 0.1s;
+  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+  box-shadow: var(--shadow-sm);
 }
-
 #waitlist-form button:hover {
   background: var(--green-700);
+  box-shadow: var(--shadow-md);
 }
 #waitlist-form button:disabled {
   background: var(--gray-500);
@@ -281,16 +707,24 @@ h1 {
   text-align: center;
   min-height: 1.5em;
 }
-.form-status.error { color: #dc2626; }
-/* La classe .ok n'est plus utilisee : on bascule vers .success-card a la place. */
+.form-status.error { color: var(--red-800); }
 
-/* ---- Carte de succes ---- */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===== Carte de succes ===== */
+
 .success-card {
   text-align: center;
-  padding: 40px 24px;
+  padding: 44px 28px;
   background: var(--green-50);
   border: 2px solid var(--green-500);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
+  max-width: 520px;
   animation: fade-in-up 0.4s ease-out;
 }
 
@@ -310,7 +744,7 @@ h1 {
   font-size: 2rem;
   font-weight: 700;
   border-radius: 50%;
-  box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.15);
+  box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.18);
 }
 
 .success-card h3 {
@@ -348,15 +782,35 @@ h1 {
   color: var(--white);
 }
 
-/* Honeypot (anti-bot) — invisible mais accessible aux bots */
-.hp-field {
-  position: absolute;
-  left: -9999px;
-  opacity: 0;
-  pointer-events: none;
+/* ============================================================
+   FINAL CTA (gradient vert)
+   ============================================================ */
+
+.final-cta {
+  padding: 72px 0;
+  background: linear-gradient(135deg, var(--green-700), var(--green-600));
+  color: var(--white);
+  text-align: center;
 }
 
-/* ---- Footer ---- */
+.final-cta h2 {
+  color: var(--white);
+  margin-bottom: 28px;
+}
+
+.cta-on-dark {
+  background: var(--white);
+  color: var(--green-700);
+}
+.cta-on-dark:hover {
+  background: var(--green-50);
+  color: var(--green-800);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
 .footer {
   padding: 32px 0;
   border-top: 1px solid var(--gray-200);
@@ -365,10 +819,38 @@ h1 {
   text-align: center;
 }
 
-/* ---- Tablette / Desktop ---- */
-@media (min-width: 720px) {
-  .container { padding: 0 32px; }
-  .value-grid { grid-template-columns: repeat(3, 1fr); }
-  .hero { padding: 32px 0 96px; }
-  .value, .how, .waitlist { padding: 96px 0; }
+/* ============================================================
+   RESPONSIVE — desktop / tablette
+   ============================================================ */
+
+@media (min-width: 768px) {
+  .hero { padding: 80px 0 96px; }
+
+  .hero-grid {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+  }
+
+  .value-grid,
+  .preview-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .value, .preview, .how, .faq, .waitlist { padding: 100px 0; }
+}
+
+@media (min-width: 1024px) {
+  .hero { padding: 96px 0 112px; }
+  .phone { width: 320px; }
+  .phone-screen { min-height: 600px; }
+}
+
+/* Reduce motion : respecte la preference utilisateur */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .phone { transform: none; }
 }
