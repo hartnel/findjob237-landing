@@ -1,14 +1,17 @@
 // Soumission du formulaire en AJAX vers Web3Forms : evite le redirect
-// vers leur page de succes, on garde l'utilisateur sur ta landing.
+// vers la page de succes du provider, on garde l'utilisateur sur la
+// landing et on lui montre une vraie carte de succes.
 (() => {
   const form = document.getElementById('waitlist-form');
   const status = document.getElementById('form-status');
   const submit = form.querySelector('button[type="submit"]');
+  const successCard = document.getElementById('waitlist-success');
+  const shareBtn = document.getElementById('share-btn');
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     status.className = 'form-status';
-    status.textContent = 'Envoi...';
+    status.textContent = 'Envoi en cours...';
     submit.disabled = true;
 
     const formData = new FormData(form);
@@ -21,20 +24,47 @@
       });
 
       if (response.ok) {
-        form.reset();
-        status.className = 'form-status ok';
-        status.textContent = 'Inscrit·e ! On te previent au lancement. Merci 🙏';
+        // On bascule vers la carte de succes : plus visible qu'un simple
+        // message texte, et incite au partage.
+        form.hidden = true;
+        successCard.hidden = false;
+        successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
         const data = await response.json().catch(() => ({}));
         throw new Error(data.message || 'Erreur reseau');
       }
     } catch (err) {
       status.className = 'form-status error';
-      status.textContent = "Probleme d'envoi. Reessaye dans un instant ou ecris a contact@findjob237.";
+      status.textContent = "Probleme d'envoi. Reessaye dans un instant.";
       // eslint-disable-next-line no-console
       console.error(err);
-    } finally {
       submit.disabled = false;
+    }
+  });
+
+  // Bouton "Partager" : utilise l'API Web Share native quand dispo
+  // (mobile), retombe sur copie du lien sinon.
+  shareBtn.addEventListener('click', async () => {
+    const shareData = {
+      title: 'findjob237',
+      text: 'Toutes les offres d\'emploi du Cameroun, filtrees des arnaques. Inscris-toi avant le lancement.',
+      url: window.location.href,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(window.location.href);
+        shareBtn.textContent = '✓ Lien copie !';
+        setTimeout(() => {
+          shareBtn.textContent = '📲 Partager findjob237';
+        }, 2000);
+      }
+    } catch (err) {
+      // L'utilisateur a annule le partage : pas une erreur.
+      // eslint-disable-next-line no-console
+      console.debug('share cancelled', err);
     }
   });
 })();

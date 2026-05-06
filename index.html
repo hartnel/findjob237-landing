@@ -31,14 +31,20 @@
       MinaJobs, ReliefWeb, UN Talent, Telegram, pages Facebook officielles —
       agreges en un seul endroit. Tu nous dis ce que tu cherches, on te previent.
     </p>
+    <div class="launch-badge">🚀 Beta privee · 20 mai 2026</div>
     <a href="#waitlist" class="cta-primary">Etre prevenu·e du lancement</a>
-    <p class="cta-note">Gratuit · 100% local · Lancement prochain</p>
+    <p class="cta-note">Gratuit · 100% local · Acces prioritaire pour les pre-inscrits</p>
   </div>
 </header>
 
 <section class="value">
   <div class="container">
     <div class="value-grid">
+      <article class="value-card">
+        <div class="value-icon">🎯</div>
+        <h3>Personnalise</h3>
+        <p>Tu remplis ton profil une fois (ville, metier, experience). On te previent uniquement quand une offre te correspond vraiment.</p>
+      </article>
       <article class="value-card">
         <div class="value-icon">📰</div>
         <h3>Tout en un</h3>
@@ -48,11 +54,6 @@
         <div class="value-icon">🛡️</div>
         <h3>Anti-arnaque</h3>
         <p>Frais de dossier, faux recruteurs, contacts WhatsApp douteux : un filtre les detecte avant qu'ils n'arrivent jusqu'a toi.</p>
-      </article>
-      <article class="value-card">
-        <div class="value-icon">🎯</div>
-        <h3>Personnalise</h3>
-        <p>Tu remplis ton profil une fois (ville, metier, experience). On te previent uniquement quand une offre te correspond.</p>
       </article>
     </div>
   </div>
@@ -91,7 +92,8 @@
   <div class="container">
     <h2>Rejoins la liste d'attente</h2>
     <p class="waitlist-subtitle">
-      Laisse ton numero WhatsApp, on te previent en premier au lancement.
+      Lancement de la beta privee le <strong>20 mai 2026</strong>.
+      Laisse ton numero WhatsApp, on te previent en premier.
       Pas de spam, pas de partage, jamais.
     </p>
 
@@ -107,7 +109,7 @@
         <iframe src="https://tally.so/embed/XXXXX" frameborder="0" width="100%" height="500"></iframe>
     -->
     <form id="waitlist-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
+      <input type="hidden" name="access_key" value="b23641eb-886c-45c8-b480-e06280789cb8" />
       <input type="hidden" name="subject" value="Nouveau pre-inscrit findjob237" />
       <input type="hidden" name="from_name" value="Landing findjob237" />
       <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" />
@@ -136,6 +138,23 @@
       <button type="submit">Etre prevenu·e</button>
       <p class="form-status" id="form-status" role="status"></p>
     </form>
+
+    <!-- Carte de succes : masquee par defaut, affichee apres soumission OK -->
+    <div id="waitlist-success" class="success-card" hidden>
+      <div class="success-check" aria-hidden="true">✓</div>
+      <h3>C'est note, merci !</h3>
+      <p class="success-message">
+        On te previent par WhatsApp des l'ouverture de la beta, le
+        <strong>20 mai 2026</strong>.
+      </p>
+      <p class="success-share">
+        En attendant, partage findjob237 a un ami qui cherche un emploi —
+        tu lui rends un vrai service.
+      </p>
+      <button type="button" class="share-btn" id="share-btn">
+        📲 Partager findjob237
+      </button>
+    </div>
   </div>
 </section>
 
