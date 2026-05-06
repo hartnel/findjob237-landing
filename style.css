@@ -560,89 +560,6 @@ h2 {
 }
 
 /* ============================================================
-   FOUNDER
-   ============================================================ */
-
-.founder {
-  padding: 80px 0;
-  background: var(--white);
-}
-
-.founder-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 36px;
-  align-items: center;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.founder-photo {
-  position: relative;
-}
-
-.founder-photo img {
-  width: 100%;
-  max-width: 320px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-  border: 4px solid var(--green-100);
-  box-shadow: var(--shadow-md);
-  margin: 0 auto;
-}
-
-/* Si la photo n'est pas encore chargee, on affiche un placeholder vert
-   plutot qu'une image cassee. */
-.founder-photo img:not([src]),
-.founder-photo img[src=""] {
-  background: var(--green-100);
-}
-
-.founder-eyebrow {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--green-700);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 8px;
-}
-
-.founder-text h2 {
-  margin-bottom: 20px;
-}
-
-.founder-bio {
-  color: var(--gray-700);
-  font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 14px;
-}
-
-.founder-bio strong {
-  color: var(--gray-900);
-  font-weight: 700;
-}
-
-.founder-contact {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 10px 18px;
-  background: var(--green-50);
-  color: var(--green-800);
-  font-weight: 600;
-  font-size: 0.95rem;
-  border: 1px solid var(--green-200);
-  border-radius: var(--radius);
-  text-decoration: none;
-  transition: background 0.15s, border-color 0.15s;
-}
-.founder-contact:hover {
-  background: var(--green-100);
-  border-color: var(--green-500);
-}
-
-/* ============================================================
    FAQ
    ============================================================ */
 
@@ -902,13 +819,7 @@ h2 {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .value, .preview, .how, .founder, .faq, .waitlist { padding: 100px 0; }
-
-  .founder-grid {
-    grid-template-columns: 320px 1fr;
-    gap: 56px;
-  }
-  .founder-photo img { max-width: none; }
+  .value, .preview, .how, .faq, .waitlist { padding: 100px 0; }
 }
 
 @media (min-width: 1024px) {
