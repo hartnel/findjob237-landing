@@ -1,0 +1,298 @@
+/* Theme : vert + blanc, mobile-first, sans framework. */
+:root {
+  --green-50:  #f0fdf4;
+  --green-100: #dcfce7;
+  --green-500: #22c55e;
+  --green-600: #16a34a;
+  --green-700: #15803d;
+  --green-800: #166534;
+
+  --white:     #ffffff;
+  --gray-100:  #f3f4f6;
+  --gray-200:  #e5e7eb;
+  --gray-500:  #6b7280;
+  --gray-700:  #374151;
+  --gray-900:  #111827;
+
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--gray-900);
+  background: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---- Hero ---- */
+.hero {
+  background: linear-gradient(180deg, var(--green-50) 0%, var(--white) 100%);
+  padding: 24px 0 64px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 56px;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--green-700);
+  letter-spacing: -0.01em;
+}
+.brand-suffix {
+  color: var(--gray-900);
+}
+
+h1 {
+  font-size: clamp(1.75rem, 6vw, 2.75rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--gray-700);
+  margin-bottom: 32px;
+  max-width: 600px;
+}
+
+.cta-primary {
+  display: inline-block;
+  background: var(--green-600);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.cta-primary:hover {
+  background: var(--green-700);
+  transform: translateY(-1px);
+}
+.cta-primary:active {
+  transform: translateY(0);
+}
+
+.cta-note {
+  margin-top: 14px;
+  font-size: 0.875rem;
+  color: var(--gray-500);
+}
+
+/* ---- Value blocks ---- */
+.value {
+  padding: 64px 0;
+  border-top: 1px solid var(--gray-200);
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.value-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.value-card:hover {
+  border-color: var(--green-500);
+  box-shadow: var(--shadow-md);
+}
+
+.value-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.value-card h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--green-800);
+}
+
+.value-card p {
+  color: var(--gray-700);
+  font-size: 0.95rem;
+}
+
+/* ---- How it works ---- */
+.how {
+  padding: 64px 0;
+  background: var(--green-50);
+}
+
+.how h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 32px;
+  letter-spacing: -0.01em;
+}
+
+.steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.steps li {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.step-num {
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--green-600);
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.steps h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.steps p {
+  color: var(--gray-700);
+  font-size: 0.95rem;
+}
+
+/* ---- Waitlist form ---- */
+.waitlist {
+  padding: 64px 0;
+}
+
+.waitlist h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.waitlist-subtitle {
+  color: var(--gray-700);
+  margin-bottom: 32px;
+}
+
+#waitlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#waitlist-form label {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+.req { color: var(--green-600); }
+
+#waitlist-form input,
+#waitlist-form select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--gray-900);
+  background: var(--white);
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+#waitlist-form input:focus,
+#waitlist-form select:focus {
+  outline: none;
+  border-color: var(--green-500);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+#waitlist-form button {
+  margin-top: 8px;
+  padding: 14px 24px;
+  background: var(--green-600);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+#waitlist-form button:hover {
+  background: var(--green-700);
+}
+#waitlist-form button:disabled {
+  background: var(--gray-500);
+  cursor: not-allowed;
+}
+
+.form-status {
+  font-size: 0.95rem;
+  text-align: center;
+  min-height: 1.5em;
+}
+.form-status.ok    { color: var(--green-700); }
+.form-status.error { color: #dc2626; }
+
+/* Honeypot (anti-bot) — invisible mais accessible aux bots */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---- Footer ---- */
+.footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--gray-200);
+  color: var(--gray-500);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* ---- Tablette / Desktop ---- */
+@media (min-width: 720px) {
+  .container { padding: 0 32px; }
+  .value-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero { padding: 32px 0 96px; }
+  .value, .how, .waitlist { padding: 96px 0; }
+}

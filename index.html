@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>findjob237 — Toutes les offres d'emploi du Cameroun</title>
+  <meta name="description" content="findjob237 agrege les offres d'emploi du Cameroun, filtre les arnaques, et te previent quand une offre te correspond. Inscris-toi pour etre averti·e du lancement." />
+
+  <!-- Open Graph (partage social) -->
+  <meta property="og:title" content="findjob237 — Trouve un emploi qui te correspond" />
+  <meta property="og:description" content="Agrege MinaJobs, ReliefWeb, UN Talent, Telegram et plus. Filtre les arnaques. Matching personnalise." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <nav class="nav">
+      <span class="brand">findjob<span class="brand-suffix">237</span></span>
+    </nav>
+
+    <h1>Toutes les offres d'emploi du Cameroun, filtrees des arnaques, qui te trouvent.</h1>
+    <p class="subtitle">
+      MinaJobs, ReliefWeb, UN Talent, Telegram, pages Facebook officielles —
+      agreges en un seul endroit. Tu nous dis ce que tu cherches, on te previent.
+    </p>
+    <a href="#waitlist" class="cta-primary">Etre prevenu·e du lancement</a>
+    <p class="cta-note">Gratuit · 100% local · Lancement prochain</p>
+  </div>
+</header>
+
+<section class="value">
+  <div class="container">
+    <div class="value-grid">
+      <article class="value-card">
+        <div class="value-icon">📰</div>
+        <h3>Tout en un</h3>
+        <p>On surveille les meilleures sources camerounaises — APIs officielles, canaux Telegram, pages emploi — pour que tu ne rates plus rien.</p>
+      </article>
+      <article class="value-card">
+        <div class="value-icon">🛡️</div>
+        <h3>Anti-arnaque</h3>
+        <p>Frais de dossier, faux recruteurs, contacts WhatsApp douteux : un filtre les detecte avant qu'ils n'arrivent jusqu'a toi.</p>
+      </article>
+      <article class="value-card">
+        <div class="value-icon">🎯</div>
+        <h3>Personnalise</h3>
+        <p>Tu remplis ton profil une fois (ville, metier, experience). On te previent uniquement quand une offre te correspond.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="container">
+    <h2>Comment ca marche</h2>
+    <ol class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <div>
+          <h4>Tu crees ton profil</h4>
+          <p>Ville, domaine, experience. 2 minutes max.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div>
+          <h4>On collecte et on filtre</h4>
+          <p>Toutes les nouvelles offres sont analysees, scorees, dedoublonnees.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <div>
+          <h4>Tu recois les bonnes</h4>
+          <p>Notifications dans l'app uniquement quand une offre te correspond vraiment.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="waitlist" id="waitlist">
+  <div class="container">
+    <h2>Rejoins la liste d'attente</h2>
+    <p class="waitlist-subtitle">
+      Laisse ton numero WhatsApp, on te previent en premier au lancement.
+      Pas de spam, pas de partage, jamais.
+    </p>
+
+    <!--
+      Formulaire Web3Forms — gratuit illimite.
+      Pour activer :
+        1. Cree un compte sur https://web3forms.com (30 secondes, juste une adresse email)
+        2. Recupere ton "access key"
+        3. Remplace YOUR_ACCESS_KEY ci-dessous
+        4. (Optionnel) Connecte la cle a Google Sheets via Zapier ou n8n
+
+      Alternative Tally : retire le <form> et insere un iframe :
+        <iframe src="https://tally.so/embed/XXXXX" frameborder="0" width="100%" height="500"></iframe>
+    -->
+    <form id="waitlist-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
+      <input type="hidden" name="subject" value="Nouveau pre-inscrit findjob237" />
+      <input type="hidden" name="from_name" value="Landing findjob237" />
+      <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" />
+
+      <label for="phone">Numero WhatsApp <span class="req">*</span></label>
+      <input id="phone" name="phone" type="tel" placeholder="+237 6XX XX XX XX" required inputmode="tel" />
+
+      <label for="city">Ville <span class="req">*</span></label>
+      <select id="city" name="city" required>
+        <option value="" disabled selected>Choisis ta ville</option>
+        <option>Douala</option>
+        <option>Yaounde</option>
+        <option>Bafoussam</option>
+        <option>Bamenda</option>
+        <option>Buea</option>
+        <option>Garoua</option>
+        <option>Maroua</option>
+        <option>Kribi</option>
+        <option>Limbe</option>
+        <option>Autre</option>
+      </select>
+
+      <label for="domain">Domaine recherche <span class="req">*</span></label>
+      <input id="domain" name="domain" type="text" placeholder="Informatique, logistique, commerce, ..." required />
+
+      <button type="submit">Etre prevenu·e</button>
+      <p class="form-status" id="form-status" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>
+      © 2026 findjob237. Tes donnees ne sont jamais revendues.
+    </p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
