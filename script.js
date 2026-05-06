@@ -7,7 +7,9 @@
   const submit = form.querySelector('button[type="submit"]');
   const successCard = document.getElementById('waitlist-success');
   const shareBtn = document.getElementById('share-btn');
+  const SHARE_LABEL_DEFAULT = '📲 Partager findjob237';
 
+  // ============== Soumission du formulaire ==============
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     status.className = 'form-status';
@@ -24,8 +26,10 @@
       });
 
       if (response.ok) {
-        // On bascule vers la carte de succes : plus visible qu'un simple
-        // message texte, et incite au partage.
+        // Reset des champs (si jamais l'utilisateur revient en arriere
+        // ou que le navigateur restaure le formulaire, il sera propre).
+        form.reset();
+        // Bascule vers la carte de succes.
         form.hidden = true;
         successCard.hidden = false;
         successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -42,8 +46,14 @@
     }
   });
 
-  // Bouton "Partager" : utilise l'API Web Share native quand dispo
-  // (mobile), retombe sur copie du lien sinon.
+  // ============== Bouton Partager ==============
+  // Strategie : Web Share API (mobile natif) -> clipboard -> prompt en
+  // dernier recours. Toujours du feedback visible — jamais silencieux.
+  const showShareFeedback = (label, durationMs = 2000) => {
+    shareBtn.textContent = label;
+    setTimeout(() => { shareBtn.textContent = SHARE_LABEL_DEFAULT; }, durationMs);
+  };
+
   shareBtn.addEventListener('click', async () => {
     const shareData = {
       title: 'findjob237',
@@ -51,20 +61,35 @@
       url: window.location.href,
     };
 
-    try {
-      if (navigator.share) {
+    // 1. Tente l'API Web Share native (Android, iOS, Chrome desktop).
+    if (navigator.share) {
+      try {
         await navigator.share(shareData);
-      } else if (navigator.clipboard) {
-        await navigator.clipboard.writeText(window.location.href);
-        shareBtn.textContent = '✓ Lien copié !';
-        setTimeout(() => {
-          shareBtn.textContent = '📲 Partager findjob237';
-        }, 2000);
+        return;
+      } catch (err) {
+        // L'utilisateur a annule le partage : on ne fait rien, pas un bug.
+        if (err && err.name === 'AbortError') return;
+        // Sinon on continue vers le fallback clipboard.
+        // eslint-disable-next-line no-console
+        console.debug('Web Share API a echoue, fallback clipboard', err);
       }
-    } catch (err) {
-      // L'utilisateur a annule le partage : pas une erreur.
-      // eslint-disable-next-line no-console
-      console.debug('share cancelled', err);
     }
+
+    // 2. Fallback clipboard (desktop, navigateurs sans Web Share).
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        showShareFeedback('✓ Lien copié !');
+        return;
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.debug('Clipboard API a echoue, fallback prompt', err);
+      }
+    }
+
+    // 3. Dernier recours : prompt() pour que l'utilisateur copie a la main
+    //    (ouvre `file://` ou navigateur tres ancien).
+    // eslint-disable-next-line no-alert
+    window.prompt('Copie ce lien :', window.location.href);
   });
 })();
