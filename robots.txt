@@ -1,0 +1,8 @@
+# robots.txt — findjob237
+# Indique aux moteurs de recherche ce qu'ils peuvent indexer.
+
+User-agent: *
+Allow: /
+
+# Sitemap pour aider Google et Bing a trouver toutes les pages.
+Sitemap: https://findjob237.online/sitemap.xml
