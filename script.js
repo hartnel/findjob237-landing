@@ -92,4 +92,27 @@
     // eslint-disable-next-line no-alert
     window.prompt('Copie ce lien :', window.location.href);
   });
+
+  // ============== Adapt CTA wording selon device ==============
+  // Sur mobile, on parle d'install (la PWA s'installe nativement via le
+  // prompt Chrome quand on arrive sur l'app avec ?install=1).
+  // Sur desktop, "Installer" est moins evident (Chrome desktop le supporte
+  // mais c'est moins habituel), on dit "Ouvrir".
+  // Detection naive mais suffisante : matchMedia max-width + UA mobile.
+  const isMobile =
+    window.matchMedia('(max-width: 768px)').matches ||
+    /iPhone|iPad|iPod|Android/.test(navigator.userAgent);
+
+  const launchLabel = isMobile ? '📲 Installer findjob237' : '🚀 Ouvrir findjob237';
+  const launchHref = isMobile
+    ? 'https://app.findjob237.online/?install=1'
+    : 'https://app.findjob237.online/';
+
+  ['hero-cta-launch', 'final-cta-launch'].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.textContent = launchLabel;
+      el.href = launchHref;
+    }
+  });
 })();
