@@ -193,6 +193,34 @@ h1 .hl {
 }
 .cta-primary:active { transform: translateY(0); }
 
+/* Stack des CTAs hero : primary (s'inscrire) + secondary (installer).
+   En desktop : cote a cote, en mobile : empiles. */
+.cta-stack {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* CTA secondaire : variante claire pour rester subordonne au primary
+   tout en restant clickable et visible (border + couleur brand). */
+.cta-secondary {
+  display: inline-block;
+  background: var(--white);
+  color: var(--green-700);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  border: 2px solid var(--green-600);
+  transition: background 0.15s, transform 0.15s;
+}
+.cta-secondary:hover {
+  background: var(--green-50, #f0fdf4);
+  transform: translateY(-2px);
+}
+.cta-secondary:active { transform: translateY(0); }
+
 .cta-note {
   margin-top: 14px;
   font-size: 0.875rem;
