@@ -6,3 +6,8 @@
 
 # Cloudflare wrangler local cache (si tu utilises wrangler plus tard)
 .wrangler/
+
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
